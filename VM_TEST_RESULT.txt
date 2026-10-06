@@ -1,0 +1,97 @@
+Ubuntu 24.04.5 LTS
+4
+7 GB
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+29.1.3
+== prereq rc=0
+#6 [src 2/2] RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates && rm -rf /var/lib/apt/lists/*  && git clone --filter=blob:none https://github.com/KKKKhazix/AIHOT.git /src && cd /src && git checkout --detach "2b80294859160a727e0749f7b8b6232c2812fdf4"  && git log -1 --format='pinned %H %cI' && rm -rf /src/.git
+#6 [src 2/2] RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates && rm -rf /var/lib/apt/lists/*  && git clone --filter=blob:none https://github.com/KKKKhazix/AIHOT.git /src && cd /src && git checkout --detach "2b80294859160a727e0749f7b8b6232c2812fdf4"  && git log -1 --format='pinned %H %cI' && rm -rf /src/.git
+#6 11.27 pinned 2b80294859160a727e0749f7b8b6232c2812fdf4 2026-10-06T18:00:54+08:00
+image ok 149322144
+== build rc=0
+71ed2fba84dead19ef7a0d23820ddd954f1b500cf09f0f61bfdf08ca01eda785
+Unable to find image 'postgres:17-alpine' locally
+17-alpine: Pulling from library/postgres
+a8a481ae6efc: Pulling fs layer
+7ccdb0dcae74: Pulling fs layer
+4ece9a32c307: Pulling fs layer
+eb805f20f060: Pulling fs layer
+93a3470d5852: Pulling fs layer
+43f9814c9a3b: Pulling fs layer
+e2de96513ba9: Pulling fs layer
+f3b07e8a357c: Pulling fs layer
+b0a0d9d2abf2: Pulling fs layer
+3333950675b2: Pulling fs layer
+656469e78267: Download complete
+3333950675b2: Download complete
+fa8e66b88311: Download complete
+eb805f20f060: Download complete
+93a3470d5852: Download complete
+7ccdb0dcae74: Download complete
+b0a0d9d2abf2: Download complete
+a8a481ae6efc: Download complete
+4ece9a32c307: Download complete
+43f9814c9a3b: Download complete
+e2de96513ba9: Download complete
+4ece9a32c307: Pull complete
+43f9814c9a3b: Pull complete
+e2de96513ba9: Pull complete
+3333950675b2: Pull complete
+f3b07e8a357c: Download complete
+eb805f20f060: Pull complete
+7ccdb0dcae74: Pull complete
+f3b07e8a357c: Pull complete
+93a3470d5852: Pull complete
+b0a0d9d2abf2: Pull complete
+a8a481ae6efc: Pull complete
+Digest: sha256:b0f9560a2de083e2cc7382e75f808c7381a32852a7ec49117deedb300e552b24
+Status: Downloaded newer image for postgres:17-alpine
+db-up
+== db rc=0
+web 200
+applied 0051_drop_unused_state.sql (8ms, transaction)
+applied 0052_drop_lb_prices_verified_on.sql (2ms, transaction)
+applied 0053_drop_leaderboard_monitor.sql (35ms, transaction)
+applied 0054_admin_password_sessions.sql (2ms, transaction)
+applied 0055_publication_selected_published_idx.sql (5ms, index)
+applied 0056_analyses_composite_id_idx.sql (4ms, index)
+applied 0056_publication_release_selection_stats.sql (2ms, statistics)
+applied 0056_publications_pool_category_timeline_idx.sql (6ms, index)
+applied 0057_analyze_publication_release_selection.sql (2ms, statistics)
+applied 0057_publications_pool_channel_timeline_idx.sql (4ms, index)
+57 migration(s) applied
+sources: 18 added, 0 already there
+{"level":"info","msg":"web started","port":8080,"pid":40}
+{"level":30,"time":1791300383733,"pid":38,"hostname":"532c6ca9a9cb","msg":"Server listening at http://127.0.0.1:3001"}
+{"level":"info","msg":"worker started","pid":39}
+== run rc=0
+admin 302 -> http://127.0.0.1:8080/api/auth/login?return=%2Fadmin
+sh: 1: ps: not found
+api-local 404
+== checks rc=0
+after-restart web 200
+total 8
+drwxr-xr-x 2 node node 4096 Oct  6 15:26 .
+drwxr-xr-x 1 root root 4096 Oct  6 15:26 ..
+-rw-r--r-- 1 node node    0 Oct  6 15:26 .seeded
+PID                 UID                 COMMAND
+10392               0                   /usr/bin/tini -- /app/start.sh
+10442               1000                /bin/bash /app/start.sh
+10463               1000                node apps/api/src/main.ts
+10464               1000                node apps/worker/src/main.ts
+10465               1000                node apps/web/server.ts
+seed-runs=1
+== restart rc=0
+0
+1
+== secrets rc=0
+done 2026-10-06T18:26:29+03:00
