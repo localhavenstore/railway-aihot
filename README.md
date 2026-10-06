@@ -5,7 +5,10 @@ model screen and score them, clusters reports into events, ranks them by "heat" 
 Upstream: [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) (MIT licence, see `UPSTREAM-LICENSE`). This template is not made
 by or affiliated with the AIHOT author. Per the author's request, **give your site your own name and logo** (the default name is MyHOT).
 
-**Deploy on Railway:** <TEMPLATE LINK - added when published>
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/aihot-engine-ai-news-hot-topics-site?referralCode=j8As-k)
+
+**Deploy on Railway:** https://railway.com/deploy/aihot-engine-ai-news-hot-topics-site (the button carries our referral code - see the next line).
+Deployed once on Railway itself before publishing (6 Oct 2026: web 200, /admin protected, API health OK).
 New to Railway? Sign up with our **referral link**: https://railway.com?referralCode=j8As-k - you get USD 20 of credit, and we get a
 share of your Railway usage. That is how this free template is paid for.
 
